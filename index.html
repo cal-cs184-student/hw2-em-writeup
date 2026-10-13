@@ -204,9 +204,21 @@
 		<p>Edge flipping is a process of relinking existing elements to redefine the shared edge between two triangles. Because no elements are created in the process, but an edge has to change places and two completely different triangles arise, I defined iterators referencing the existing elements of the mesh first before relinking anything. Specficially, since this is a local operation, I only consider the two triangles that share the input edge, and their elements. I created a drawing and labeled all mesh elements accordingly, without loss of generality, to refer to when defining iterators. I then referred to the same drawing, with the new edge added on, to <code>setNeighbors</code> for all the half edges. I then reassigned half edges to the other mesh elements.</p>
 
 		<p>This took me a while to figure out, as I initially missed the requirement of not creating new elements, and also referenced the elements of the mesh in a very roundabout way, causing issues because relationships would get messed up along the way. Creating a diagram with clear labels, and going about referencing and redefining elements step by step helped me succeed with the implementation. Moreover, for this and the next task, I made minimal changes to the outer half edges, preserving their existing connections to the surrounding faces, to ensure that the method only makes local changes.</p> 
+		
 		<div style="display: flex; flex-direction: column; align-items: center;">
-			<img src="assets/2.2.png" width="600px"/>
-		<figcaption>Teapot with Flipped Edges</figcaption>
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+				<tr>
+
+				<td style="text-align: center;">
+				  <img src="assets/2.1-1.png" width="450px"/>
+				  <figcaption>Before Edge Flips</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/2.2.png" width="450px"/>
+				  <figcaption>After Edge Flips</figcaption>
+				</td>
+			  </tr>
+			</table>
 		</div>
 
 		
@@ -226,12 +238,16 @@
 				<tr>
 
 				<td style="text-align: center;">
-				  	<img src="assets/2.3-1.png" width="500px"/>
-					<figcaption>Teapot with Split Edges</figcaption>
+				  	<img src="assets/2.1-1.png" width="400px"/>
+					<figcaption>Before Split/Flipped Edges</figcaption>
+
+				<td style="text-align: center;">
+				  	<img src="assets/2.3-1.png" width="400px"/>
+					<figcaption>After Split Edges</figcaption>
 				</td>
 				<td style="text-align: center;">
-					<img src="assets/2.3-2.png" width="500px"/>
-					<figcaption>Teapot with Split and Flipped Edges</figcaption>
+					<img src="assets/2.3-2.png" width="400px"/>
+					<figcaption>After Split and Flipped Edges</figcaption>
 				</td>
 			  </tr>
 			</table>
