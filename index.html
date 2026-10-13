@@ -50,11 +50,11 @@
 
 		<br>
 		<p style="text-align: center; font-weight: 200;">
-		WEBPAGE: (TODO) <a href="https://cs184.eecs.berkeley.edu/fa26">cs184.eecs.berkeley.edu/fa26</a>
+		WEBPAGE: <a href="https://cal-cs184-student.github.io/hw2-em-writeup/">cal-cs184-student.github.io/hw2-em-writeup/</a>
 		
 		<br>
 		
-		GITHUB REPO: (TODO) <a href="https://cs184.eecs.berkeley.edu/fa26">cs184.eecs.berkeley.edu/fa26</a>
+		GITHUB REPO: <a href="https://github.com/cal-cs184-student/hw2-em-writeup">github.com/cal-cs184-student/hw2-em-writeup</a>
 		</p>
 
 		<!--
@@ -242,7 +242,7 @@
 		<h3>Part 6: Loop Subdivision for Mesh Upsampling</h3>
 		<p>Loop subdivision is the process of splitting each triangle in a mesh into four smaller ones to achieve upsampling, resulting in a smoother mesh. To achieve this more efficiently, we don't actually go about splitting each triangle into four, but rather iterate through all the mesh elements, first splitting every edge, creating new vertices, then flipping edges that connect an old and new vertex. </p>
 
-		<p>Loop ubdivision not only creates many new vertices, but alters the positions of existing ones. Thus, the first step in my implementation was to use the given formulas to calculate updated positions of existing vertices and newly created vertices, which I stored in the <code>newPosition</code> attribute of the existing vertices and edges that were to be split.</p>
+		<p>Loop subdivision not only creates many new vertices, but alters the positions of existing ones. Thus, the first step in my implementation was to use the given formulas to calculate updated positions of existing vertices and newly created vertices, which I stored in the <code>newPosition</code> attribute of the existing vertices and edges that were to be split.</p>
 
 		<p>Then, I moved on to actually splitting the edges, which simply involved iterating over each edge in the mesh and calling <code>splitEdge</code>. A big note here is that we should only iterate over the original edges of the mesh, and not the newly created ones from splitting edges! When I was looping over the edges in the previous step to find the new vertex positions, I also created a vector to store these existing edges called <code>original_edges</code>, which I iterated over in this step. I was initially skeptical if this would work, but realized that because new vertices would be created as we split, and that we were only iterating through existing edges, the end result of this step would look something like the diagram in the task.</p>
 
@@ -271,7 +271,7 @@
 
 		<p>The cube becomes asymmetric after subdivisions because originally, each face only contained one diagonal, creating a lopsided effect that becomes compounded as we upsample the mesh. To counteract this, I just split each diagonal once more, so each face had a pair of diagonals that balanced each other out.</p>
 
-		<h4>Testing Out Loop Subdivision with cube.dae</h4>
+		<h4>Loop Subdivision of cube.dae with Pre-Processing</h4>
 
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
